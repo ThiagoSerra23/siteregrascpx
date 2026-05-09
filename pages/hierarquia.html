@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0B0B0D">
+    <title>Hierarquia | Regras CPX</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="overlay"></div>
+
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo"><img src="../assets/logo.png" alt="CPX"></div>
+            <div class="sidebar-title">
+                <span>Regras CPX</span>
+                <span>Documentação Oficial</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section-label">Menu Principal</div>
+            <a href="../index.html" class="nav-link">
+                <i class="fa-solid fa-house nav-icon"></i> Início
+            </a>
+            <a href="gerais.html" class="nav-link">
+                <i class="fa-solid fa-book nav-icon"></i> Regras Gerais
+            </a>
+            <a href="advertencias.html" class="nav-link">
+                <i class="fa-solid fa-triangle-exclamation nav-icon"></i> Advertências
+            </a>
+            <a href="bau.html" class="nav-link">
+                <i class="fa-solid fa-box-open nav-icon"></i> Regras do Baú
+            </a>
+            <a href="farm.html" class="nav-link">
+                <i class="fa-solid fa-sack-dollar nav-icon"></i> Farm
+            </a>
+            <a href="elite.html" class="nav-link">
+                <i class="fa-solid fa-star nav-icon"></i> Elite
+            </a>
+
+            <div class="nav-section-label">Organização</div>
+            <a href="hierarquia.html" class="nav-link active">
+                <i class="fa-solid fa-sitemap nav-icon"></i> Hierarquia
+            </a>
+            <a href="ausencia.html" class="nav-link">
+                <i class="fa-solid fa-clock-rotate-left nav-icon"></i> Ausência
+            </a>
+            <a href="punicoes.html" class="nav-link">
+                <i class="fa-solid fa-gavel nav-icon"></i> Punições
+            </a>
+            <a href="modelos.html" class="nav-link">
+                <i class="fa-solid fa-copy nav-icon"></i> Modelos
+            </a>
+        </nav>
+    </aside>
+
+    <main id="main">
+        <div id="topbar">
+            <button class="hamburger" id="hamburger-btn"><i class="fa-solid fa-bars"></i></button>
+            <div class="topbar-logo">Regras CPX</div>
+            <div style="width: 24px;"></div>
+        </div>
+
+        <section class="page active">
+            <div class="page-header">
+                <h2>Hierarquia da Facção</h2>
+                <p>Estrutura de cargos, funções e responsabilidades.</p>
+                <div class="header-divider"></div>
+            </div>
+
+            <div class="page-content" style="padding-top: 0;">
+
+                <div class="hier-list">
+                    <div class="hier-card">
+                        <div class="hier-rank" style="background:var(--red); color:#fff;">#1</div>
+                        <div class="hier-info">
+                            <strong>Fundador</strong>
+                            <span>Líder máximo da organização. Toma as decisões finais sobre aliados, guerras e direção
+                                da facção.</span>
+                        </div>
+                    </div>
+
+                    <div class="hier-card">
+                        <div class="hier-rank" style="background:#cc00ff; color:#fff;">#2</div>
+                        <div class="hier-info">
+                            <strong>Sub-Fundador</strong>
+                            <span>Braço direito do Fundador. Gerencia a facção na ausência do líder e auxilia nas
+                                decisões críticas.</span>
+                        </div>
+                    </div>
+
+                    <div class="hier-card">
+                        <div class="hier-rank" style="background:var(--yellow); color:#000;">#3</div>
+                        <div class="hier-info">
+                            <strong>Gerente</strong>
+                            <span>Responsável pela administração financeira, fluxo do baú, metas de farm e controle
+                                interno.</span>
+                        </div>
+                    </div>
+
+                    <div class="hier-card">
+                        <div class="hier-rank" style="background:#FF8C00; color:#fff;">#4</div>
+                        <div class="hier-info">
+                            <strong>Responsável Geral</strong>
+                            <span>Monitora a disciplina, aplica advertências e organiza as diretrizes diárias dos
+                                membros.</span>
+                        </div>
+                    </div>
+
+                    <div class="hier-card">
+                        <div class="hier-rank" style="background:var(--green); color:#000;">#5</div>
+                        <div class="hier-info">
+                            <strong>Frente</strong>
+                            <span>Comandante de ações e guerras. Organiza o posicionamento e táticas durante os
+                                conflitos.</span>
+                        </div>
+                    </div>
+
+                    <div class="hier-card">
+                        <div class="hier-rank" style="background:#3498db; color:#fff;">#6</div>
+                        <div class="hier-info">
+                            <strong>Elite</strong>
+                            <span>Atiradores de elite e linha de frente. Membros com excelente mira e
+                                comunicação.</span>
+                        </div>
+                    </div>
+
+                    <div class="hier-card">
+                        <div class="hier-rank" style="background:#7f8c8d; color:#fff;">#7</div>
+                        <div class="hier-info">
+                            <strong>Membro</strong>
+                            <span>Membro oficializado. Já passou do período de experiência e cumpre suas funções
+                                ativamente.</span>
+                        </div>
+                    </div>
+
+                    <div class="hier-card">
+                        <div class="hier-rank" style="background:#95a5a6; color:#fff;">#8</div>
+                        <div class="hier-info">
+                            <strong>Novato</strong>
+                            <span>Membro recém-efetivado ou rebaixado por punição. Em fase de adaptação e farm
+                                constante.</span>
+                        </div>
+                    </div>
+
+                    <div class="hier-card">
+                        <div class="hier-rank" style="background:var(--text-secondary); color:#fff;">#9</div>
+                        <div class="hier-info">
+                            <strong>Recruta</strong>
+                            <span>Período de experiência. Está em avaliação pela liderança e membros. Não possui acesso
+                                total.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="back-top"><i class="fa-solid fa-chevron-up"></i></div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

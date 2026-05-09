@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0B0B0D">
+    <title>Punições | Regras CPX</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="overlay"></div>
+
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo"><img src="../assets/logo.png" alt="CPX"></div>
+            <div class="sidebar-title">
+                <span>Regras CPX</span>
+                <span>Documentação Oficial</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section-label">Menu Principal</div>
+            <a href="../index.html" class="nav-link">
+                <i class="fa-solid fa-house nav-icon"></i> Início
+            </a>
+            <a href="gerais.html" class="nav-link">
+                <i class="fa-solid fa-book nav-icon"></i> Regras Gerais
+            </a>
+            <a href="advertencias.html" class="nav-link">
+                <i class="fa-solid fa-triangle-exclamation nav-icon"></i> Advertências
+            </a>
+            <a href="bau.html" class="nav-link">
+                <i class="fa-solid fa-box-open nav-icon"></i> Regras do Baú
+            </a>
+            <a href="farm.html" class="nav-link">
+                <i class="fa-solid fa-sack-dollar nav-icon"></i> Farm
+            </a>
+            <a href="elite.html" class="nav-link">
+                <i class="fa-solid fa-star nav-icon"></i> Elite
+            </a>
+
+            <div class="nav-section-label">Organização</div>
+            <a href="hierarquia.html" class="nav-link">
+                <i class="fa-solid fa-sitemap nav-icon"></i> Hierarquia
+            </a>
+            <a href="ausencia.html" class="nav-link">
+                <i class="fa-solid fa-clock-rotate-left nav-icon"></i> Ausência
+            </a>
+            <a href="punicoes.html" class="nav-link active">
+                <i class="fa-solid fa-gavel nav-icon"></i> Punições
+            </a>
+            <a href="modelos.html" class="nav-link">
+                <i class="fa-solid fa-copy nav-icon"></i> Modelos
+            </a>
+        </nav>
+    </aside>
+
+    <main id="main">
+        <div id="topbar">
+            <button class="hamburger" id="hamburger-btn"><i class="fa-solid fa-bars"></i></button>
+            <div class="topbar-logo">Regras CPX</div>
+            <div style="width: 24px;"></div>
+        </div>
+
+        <section class="page active">
+            <div class="page-header">
+                <h2>Categorias de Punições</h2>
+                <p>Níveis de infração e suas respectivas sanções.</p>
+                <div class="header-divider"></div>
+            </div>
+
+            <div class="page-content" style="padding-top: 0;">
+
+                <div class="punish-grid">
+                    <!-- Leve -->
+                    <div class="punish-card leve">
+                        <div class="punish-level">Infração Leve</div>
+                        <div class="punish-items">
+                            <div class="punish-item">Aviso verbal</div>
+                            <div class="punish-item">Chamada de atenção</div>
+                            <div class="punish-item">Pequenos alinhamentos</div>
+                        </div>
+                    </div>
+
+                    <!-- Média -->
+                    <div class="punish-card media">
+                        <div class="punish-level">Infração Média</div>
+                        <div class="punish-items">
+                            <div class="punish-item">Advertência formal</div>
+                            <div class="punish-item">Farm obrigatório (5k+)</div>
+                            <div class="punish-item">Suspensão de ações</div>
+                        </div>
+                    </div>
+
+                    <!-- Grave -->
+                    <div class="punish-card grave">
+                        <div class="punish-level">Infração Grave</div>
+                        <div class="punish-items">
+                            <div class="punish-item">Rebaixamento de cargo</div>
+                            <div class="punish-item">PD (Pena de Morte)</div>
+                            <div class="punish-item">Remoção de esquadrão</div>
+                        </div>
+                    </div>
+
+                    <!-- Crítica -->
+                    <div class="punish-card critica">
+                        <div class="punish-level">Infração Crítica</div>
+                        <div class="punish-items">
+                            <div class="punish-item">Remoção imediata</div>
+                            <div class="punish-item">Banimento interno</div>
+                            <div class="punish-item">Inclusão em Blacklist</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="back-top"><i class="fa-solid fa-chevron-up"></i></div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

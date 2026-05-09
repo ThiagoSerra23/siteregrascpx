@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0B0B0D">
+    <title>Advertências | Regras CPX</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="overlay"></div>
+
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo"><img src="../assets/logo.png" alt="CPX"></div>
+            <div class="sidebar-title">
+                <span>Regras CPX</span>
+                <span>Documentação Oficial</span>
+            </div>
+        </div>
+
+        <div class="sidebar-search">
+            <div class="search-wrap">
+                <i class="fa-solid fa-search search-icon"></i>
+                <input type="text" id="search-input" placeholder="Buscar regras...">
+            </div>
+            <div id="search-results"></div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section-label">Menu Principal</div>
+            <a href="../index.html" class="nav-link">
+                <i class="fa-solid fa-house nav-icon"></i> Início
+            </a>
+            <a href="gerais.html" class="nav-link">
+                <i class="fa-solid fa-book nav-icon"></i> Regras Gerais
+            </a>
+            <a href="advertencias.html" class="nav-link active">
+                <i class="fa-solid fa-triangle-exclamation nav-icon"></i> Advertências
+            </a>
+            <a href="bau.html" class="nav-link">
+                <i class="fa-solid fa-box-open nav-icon"></i> Regras do Baú
+            </a>
+            <a href="farm.html" class="nav-link">
+                <i class="fa-solid fa-sack-dollar nav-icon"></i> Farm
+            </a>
+            <a href="elite.html" class="nav-link">
+                <i class="fa-solid fa-star nav-icon"></i> Elite
+            </a>
+
+            <div class="nav-section-label">Organização</div>
+            <a href="hierarquia.html" class="nav-link">
+                <i class="fa-solid fa-sitemap nav-icon"></i> Hierarquia
+            </a>
+            <a href="ausencia.html" class="nav-link">
+                <i class="fa-solid fa-clock-rotate-left nav-icon"></i> Ausência
+            </a>
+            <a href="punicoes.html" class="nav-link">
+                <i class="fa-solid fa-gavel nav-icon"></i> Punições
+            </a>
+            <a href="modelos.html" class="nav-link">
+                <i class="fa-solid fa-copy nav-icon"></i> Modelos
+            </a>
+        </nav>
+    </aside>
+
+    <main id="main">
+        <div id="topbar">
+            <button class="hamburger" id="hamburger-btn"><i class="fa-solid fa-bars"></i></button>
+            <div class="topbar-logo">Regras CPX</div>
+            <div style="width: 24px;"></div>
+        </div>
+
+        <section class="page active">
+            <div class="page-header">
+                <h2>Aplicação de Advertências</h2>
+                <p>Processo e consequências do sistema de advertências.</p>
+                <div class="header-divider"></div>
+            </div>
+
+            <div class="page-content" style="padding-top: 0;">
+
+                <div class="section-title">Sistema e Escalabilidade</div>
+                <div class="advert-steps" style="margin-bottom: 30px;">
+                    <div class="advert-step step-1">
+                        <div class="advert-step-num">1ª</div>
+                        <strong>Advertência</strong>
+                        <p>Aviso verbal e alinhamento do membro.</p>
+                    </div>
+                    <div class="advert-step step-2">
+                        <div class="advert-step-num">2ª</div>
+                        <strong>Advertência</strong>
+                        <p>Punição com farm obrigatório aplicado.</p>
+                    </div>
+                    <div class="advert-step step-3">
+                        <div class="advert-step-num">3ª</div>
+                        <strong>Advertência</strong>
+                        <p>PD (Pena de Morte) da facção.</p>
+                    </div>
+                </div>
+
+                <div class="section-title">Regras das Advertências</div>
+                <div class="table-wrap">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><i class="fa-solid fa-check" style="color:var(--green)"></i></td>
+                                <td>Todas as advertências devem ser registradas obrigatoriamente no Discord.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-lock" style="color:var(--text-secondary)"></i></td>
+                                <td>Somente Zeros e Responsável Geral têm autorização para aplicar advertências.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-coins" style="color:var(--yellow)"></i></td>
+                                <td>O valor do farm punitivo depende da gravidade da infração cometida.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-arrow-down" style="color:var(--red)"></i></td>
+                                <td>A advertência mínima de farm é de <strong>5k peças</strong> ou <strong>5k
+                                        molas</strong>.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-handshake" style="color:var(--text-primary)"></i></td>
+                                <td>O farm deve ser entregue diretamente ao aplicador da punição, que deve registrar a
+                                    baixa no Discord.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-bullhorn" style="color:var(--text-secondary)"></i></td>
+                                <td>Qualquer membro pode solicitar a aplicação de advertência a outro, chamando o
+                                    responsável.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-video" style="color:var(--text-primary)"></i></td>
+                                <td>Clipes e provas em vídeo possuem prioridade absoluta em contestações.</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa-solid fa-arrow-down-wide-short" style="color:var(--red)"></i></td>
+                                <td>Membros advertidos na 2ª vez serão rebaixados para <strong>Novato</strong> até
+                                    cumprirem a punição de farm.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="back-top"><i class="fa-solid fa-chevron-up"></i></div>
+    <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0B0B0D">
+    <meta name="description" content="Central oficial de regras da facção CPX">
+    <title>Regras CPX | Início</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Overlay Mobile -->
+    <div id="overlay"></div>
+
+    <!-- Sidebar -->
+    <aside id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo"><img src="assets/logo.png" alt="CPX"></div>
+            <div class="sidebar-title">
+                <span>Regras CPX</span>
+                <span>Documentação Oficial</span>
+            </div>
+        </div>
+
+        <div class="sidebar-search">
+            <div class="search-wrap">
+                <i class="fa-solid fa-search search-icon"></i>
+                <input type="text" id="search-input" placeholder="Buscar regras, termos...">
+            </div>
+            <div id="search-results"></div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section-label">Menu Principal</div>
+            <a href="index.html" class="nav-link active">
+                <i class="fa-solid fa-house nav-icon"></i> Início
+            </a>
+            <a href="pages/gerais.html" class="nav-link">
+                <i class="fa-solid fa-book nav-icon"></i> Regras Gerais
+            </a>
+            <a href="pages/advertencias.html" class="nav-link">
+                <i class="fa-solid fa-triangle-exclamation nav-icon"></i> Advertências
+            </a>
+            <a href="pages/bau.html" class="nav-link">
+                <i class="fa-solid fa-box-open nav-icon"></i> Regras do Baú
+            </a>
+            <a href="pages/farm.html" class="nav-link">
+                <i class="fa-solid fa-sack-dollar nav-icon"></i> Farm
+            </a>
+            <a href="pages/elite.html" class="nav-link">
+                <i class="fa-solid fa-star nav-icon"></i> Elite
+            </a>
+
+            <div class="nav-section-label">Organização</div>
+            <a href="pages/hierarquia.html" class="nav-link">
+                <i class="fa-solid fa-sitemap nav-icon"></i> Hierarquia
+            </a>
+            <a href="pages/ausencia.html" class="nav-link">
+                <i class="fa-solid fa-clock-rotate-left nav-icon"></i> Ausência
+            </a>
+            <a href="pages/punicoes.html" class="nav-link">
+                <i class="fa-solid fa-gavel nav-icon"></i> Punições
+            </a>
+            <a href="pages/modelos.html" class="nav-link">
+                <i class="fa-solid fa-copy nav-icon"></i> Modelos
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" class="discord-btn">
+                <i class="fa-brands fa-discord"></i> Entrar no Discord
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="main">
+        <!-- Topbar Mobile -->
+        <div id="topbar">
+            <button class="hamburger" id="hamburger-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="topbar-logo">Regras CPX</div>
+            <div style="width: 24px;"></div> <!-- Spacer -->
+        </div>
+
+        <!-- Page: Início -->
+        <section class="page active" id="page-inicio">
+            <div class="page-cover">
+                <img src="assets/banner.png" alt="Banner CPX">
+            </div>
+            <div class="page-content" style="padding-top: 32px;">
+                <div class="hero">
+                    <div class="hero-badge"><i class="fa-solid fa-book"></i> Documentação Oficial</div>
+                    <h1>Bem-vindo à <span>Regras CPX</span></h1>
+                    <p>
+                        Todas as normas internas da organização estão registradas nesta central.
+                        Todo membro deve conhecer, respeitar e seguir as regras da facção para manter a organização,
+                        disciplina e funcionamento interno da CPX.
+                    </p>
+
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <span class="stat-num">10</span>
+                            <span class="stat-label">Categorias</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num">+50</span>
+                            <span class="stat-label">Regras Ativas</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num">24/7</span>
+                            <span class="stat-label">Monitoramento</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-content" style="padding-top: 0;">
+                    <div class="alert alert-yellow">
+                        <i class="fa-solid fa-triangle-exclamation alert-icon"></i>
+                        <div>
+                            <strong>Aviso Importante:</strong> A ignorância das regras não isenta nenhum membro das
+                            punições. Leia tudo com atenção.
+                        </div>
+                    </div>
+
+                    <div class="section-title">Acesso Rápido</div>
+
+                    <div class="cards-grid">
+                        <a href="pages/gerais.html" style="text-decoration: none;">
+                            <div class="rule-card">
+                                <div class="rule-card-icon" style="color: var(--text-primary);"><i
+                                        class="fa-solid fa-book"></i></div>
+                                <div class="rule-card-body">
+                                    <strong>Regras Gerais</strong>
+                                    <span>Normas básicas de convivência e conduta.</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="pages/bau.html" style="text-decoration: none;">
+                            <div class="rule-card">
+                                <div class="rule-card-icon" style="color: var(--yellow);"><i
+                                        class="fa-solid fa-box-open"></i></div>
+                                <div class="rule-card-body">
+                                    <strong>Regras do Baú</strong>
+                                    <span>Limites e restrições de arsenal e itens.</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="pages/modelos.html" style="text-decoration: none;">
+                            <div class="rule-card">
+                                <div class="rule-card-icon" style="color: var(--green);"><i
+                                        class="fa-solid fa-copy"></i></div>
+                                <div class="rule-card-body">
+                                    <strong>Modelos Rápidos</strong>
+                                    <span>Copie e cole modelos de advertência e ausência.</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        </section>
+    </main>
+
+    <!-- Back to top button -->
+    <div id="back-top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
