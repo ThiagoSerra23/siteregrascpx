@@ -963,8 +963,23 @@ td i {
     padding-top: 24px;
   }
 
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 12px;
+  }
+
   .stat-card {
-    min-width: 100%;
+    min-width: 0;
+    padding: 10px 12px;
+  }
+
+  .stat-num {
+    font-size: 16px;
+  }
+
+  .stat-label {
+    font-size: 11px;
   }
 
   .model-header {
