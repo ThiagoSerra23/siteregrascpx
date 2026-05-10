@@ -942,3 +942,53 @@ td i {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .page-header h2 {
+    font-size: 24px;
+  }
+
+  .page-cover {
+    height: 140px;
+  }
+
+  .page-content,
+  .page-header {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 24px;
+  }
+
+  .stat-card {
+    min-width: 100%;
+  }
+
+  .model-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .copy-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hier-card {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .advert-step {
+    padding: 16px;
+  }
+
+  .rule-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
