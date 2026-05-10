@@ -4,10 +4,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0B0B0D">
+    <meta name="theme-color" content="#000000">
     <title>Regras Gerais | Regras CPX</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ── ESTILOS ESPECÍFICOS DA PÁGINA GERAIS ── */
+
+        .faction-motto {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .motto-tag {
+            background: var(--color-red-dim);
+            border: 1px solid rgba(229, 57, 53, 0.3);
+            color: var(--color-red);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .rules-section {
+            margin-bottom: 40px;
+        }
+
+        .rules-section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .rules-section-number {
+            width: 32px;
+            height: 32px;
+            background: var(--color-red);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .rules-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.02em;
+        }
+
+        .rules-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .rules-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg-hover);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .rules-list li:hover {
+            border-color: var(--border-hover);
+            color: var(--text-primary);
+        }
+
+        .rules-list li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: var(--color-red);
+            border-radius: 50%;
+            margin-top: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Proibições — grid de tags */
+        .prohibitions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .prohibition-tag {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border: 1px solid rgba(229, 57, 53, 0.25);
+            background: var(--color-red-dim);
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-red);
+            letter-spacing: 0.03em;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .prohibition-tag:hover {
+            border-color: rgba(229, 57, 53, 0.5);
+            background: rgba(229, 57, 53, 0.18);
+        }
+
+        .prohibition-tag i {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Sistema de Punição */
+        .punishment-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .punishment-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 18px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--bg-hover);
+        }
+
+        .punishment-step.step-1 { border-left: 3px solid #ffffff55; }
+        .punishment-step.step-2 { border-left: 3px solid var(--color-red); }
+        .punishment-step.step-3 { border-left: 3px solid var(--color-red); background: var(--color-red-dim); border-color: rgba(229, 57, 53, 0.3); }
+
+        .punishment-badge {
+            min-width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .step-1 .punishment-badge { background: #1a1a1a; color: var(--text-secondary); }
+        .step-2 .punishment-badge { background: rgba(229, 57, 53, 0.15); color: var(--color-red); }
+        .step-3 .punishment-badge { background: rgba(229, 57, 53, 0.25); color: var(--color-red); }
+
+        .punishment-body strong {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .punishment-body p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Banner final */
+        .final-banner {
+            margin-top: 48px;
+            padding: 28px 24px;
+            border: 1px solid rgba(229, 57, 53, 0.3);
+            background: var(--color-red-dim);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .final-banner p {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--color-red);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,38 +223,38 @@
         </div>
 
         <nav class="sidebar-nav">
-            <div class="nav-section-label">Menu Principal</div>
+            <div class="nav-section-label">Navegação</div>
             <a href="../index.html" class="nav-link">
                 <i class="fa-solid fa-house nav-icon"></i> Início
             </a>
             <a href="gerais.html" class="nav-link active">
-                <i class="fa-solid fa-book nav-icon"></i> Regras Gerais
-            </a>
-            <a href="advertencias.html" class="nav-link">
-                <i class="fa-solid fa-triangle-exclamation nav-icon"></i> Advertências
-            </a>
-            <a href="bau.html" class="nav-link">
-                <i class="fa-solid fa-box-open nav-icon"></i> Regras do Baú
-            </a>
-            <a href="farm.html" class="nav-link">
-                <i class="fa-solid fa-sack-dollar nav-icon"></i> Farm
-            </a>
-            <a href="elite.html" class="nav-link">
-                <i class="fa-solid fa-star nav-icon"></i> Elite
+                <i class="fa-solid fa-scroll nav-icon"></i> Regras da Facção
             </a>
 
-            <div class="nav-section-label">Organização</div>
-            <a href="hierarquia.html" class="nav-link">
-                <i class="fa-solid fa-sitemap nav-icon"></i> Hierarquia
+            <div class="nav-section-label">Seções</div>
+            <a href="#sec-1" class="nav-link">
+                <i class="fa-solid fa-users nav-icon"></i> Regras Gerais
             </a>
-            <a href="ausencia.html" class="nav-link">
-                <i class="fa-solid fa-clock-rotate-left nav-icon"></i> Ausência
+            <a href="#sec-2" class="nav-link">
+                <i class="fa-solid fa-crosshairs nav-icon"></i> Regras de Ação
             </a>
-            <a href="punicoes.html" class="nav-link">
-                <i class="fa-solid fa-gavel nav-icon"></i> Punições
+            <a href="#sec-3" class="nav-link">
+                <i class="fa-solid fa-car nav-icon"></i> Regras de Veículos
             </a>
-            <a href="modelos.html" class="nav-link">
-                <i class="fa-solid fa-copy nav-icon"></i> Modelos
+            <a href="#sec-4" class="nav-link">
+                <i class="fa-solid fa-lock nav-icon"></i> Regras Internas
+            </a>
+            <a href="#sec-5" class="nav-link">
+                <i class="fa-solid fa-radio nav-icon"></i> Comunicação
+            </a>
+            <a href="#sec-6" class="nav-link">
+                <i class="fa-solid fa-building nav-icon"></i> Regras da HQ
+            </a>
+            <a href="#sec-7" class="nav-link">
+                <i class="fa-solid fa-ban nav-icon"></i> Proibições
+            </a>
+            <a href="#sec-8" class="nav-link">
+                <i class="fa-solid fa-gavel nav-icon"></i> Sistema de Punição
             </a>
         </nav>
 
@@ -82,99 +274,165 @@
 
         <section class="page active">
             <div class="page-header">
-                <h2>Regras Gerais da Facção</h2>
-                <p>Normas fundamentais de conduta e convivência dentro da CPX.</p>
+                <h2>Regras da Facção</h2>
+                <p>Normas oficiais e completas de conduta, ação e disciplina da CPX.</p>
                 <div class="header-divider"></div>
             </div>
 
             <div class="page-content" style="padding-top: 0;">
 
-                <div class="cards-grid">
-                    <div class="rule-card">
-                        <div class="rule-card-icon" style="color: var(--yellow);"><i class="fa-solid fa-handshake"></i>
-                        </div>
-                        <div class="rule-card-body">
-                            <strong>Respeito acima de tudo</strong>
-                            <span>O respeito mútuo é a base da nossa organização. Trate todos os membros com
-                                igualdade.</span>
-                        </div>
-                    </div>
+                <!-- Motto -->
+                <div class="faction-motto">
+                    <span class="motto-tag">Respeito</span>
+                    <span class="motto-tag">Lealdade</span>
+                    <span class="motto-tag">Disciplina</span>
+                </div>
 
-                    <div class="rule-card">
-                        <div class="rule-card-icon" style="color: var(--red);"><i class="fa-solid fa-ban"></i></div>
-                        <div class="rule-card-body">
-                            <strong>Proibido desrespeito</strong>
-                            <span>Qualquer tipo de desrespeito, ofensa ou xingamento sério será punido.</span>
-                        </div>
+                <!-- 1. REGRAS GERAIS -->
+                <div class="rules-section" id="sec-1">
+                    <div class="rules-section-header">
+                        <div class="rules-section-number">1</div>
+                        <div class="rules-section-title">Regras Gerais</div>
                     </div>
+                    <ul class="rules-list">
+                        <li>Respeite todos os membros da facção.</li>
+                        <li>Hierarquia deve ser obedecida sem discussão.</li>
+                        <li>Proibido criar intrigas ou panelinhas internas.</li>
+                        <li>Assuntos internos não devem sair da organização.</li>
+                        <li>Problemas internos devem ser resolvidos com a liderança.</li>
+                        <li>Respeito e postura sempre, em qualquer situação.</li>
+                    </ul>
+                </div>
 
-                    <div class="rule-card">
-                        <div class="rule-card-icon" style="color: var(--text-primary);"><i
-                                class="fa-solid fa-arrow-up-right-dots"></i></div>
-                        <div class="rule-card-body">
-                            <strong>Respeitar a hierarquia</strong>
-                            <span>Siga as ordens de superiores. Proibido quebrar a hierarquia ao resolver
-                                problemas.</span>
-                        </div>
+                <!-- 2. REGRAS DE AÇÃO -->
+                <div class="rules-section" id="sec-2">
+                    <div class="rules-section-header">
+                        <div class="rules-section-number">2</div>
+                        <div class="rules-section-title">Regras de Ação</div>
                     </div>
+                    <ul class="rules-list">
+                        <li>Nunca iniciar ação sem autorização de um superior.</li>
+                        <li>Uso do uniforme obrigatório em ações oficiais.</li>
+                        <li>Rádio obrigatório durante todas as ações.</li>
+                        <li>Rádio limpo: nada de gritaria, música ou conversas paralelas.</li>
+                        <li>Não abandonar membros em ação.</li>
+                        <li>Priorize sempre o RP acima da vitória.</li>
+                        <li>Proibido voltar para ação após ser abatido (RK).</li>
+                    </ul>
+                </div>
 
-                    <div class="rule-card">
-                        <div class="rule-card-icon" style="color: var(--red);"><i class="fa-solid fa-skull"></i></div>
-                        <div class="rule-card-body">
-                            <strong>Proibido matar membros</strong>
-                            <span>É estritamente proibido matar dentro da facção, salvo ordens da liderança.</span>
-                        </div>
+                <!-- 3. REGRAS DE VEÍCULOS -->
+                <div class="rules-section" id="sec-3">
+                    <div class="rules-section-header">
+                        <div class="rules-section-number">3</div>
+                        <div class="rules-section-title">Regras de Veículos</div>
                     </div>
+                    <ul class="rules-list">
+                        <li>Não deixe veículos largados pela cidade.</li>
+                        <li>Guardou o veículo? Abasteça e organize.</li>
+                        <li>Proibido utilizar veículos da facção para passeio.</li>
+                        <li>Quem destruir veículo sem motivo será cobrado.</li>
+                        <li>Respeite todos os veículos e membros.</li>
+                    </ul>
+                </div>
 
-                    <div class="rule-card">
-                        <div class="rule-card-icon" style="color: var(--green);"><i class="fa-solid fa-shirt"></i></div>
-                        <div class="rule-card-body">
-                            <strong>Uso de Uniforme</strong>
-                            <span>É proibido permanecer na facção sem estar devidamente uniformizado.</span>
-                        </div>
+                <!-- 4. REGRAS INTERNAS -->
+                <div class="rules-section" id="sec-4">
+                    <div class="rules-section-header">
+                        <div class="rules-section-number">4</div>
+                        <div class="rules-section-title">Regras Internas</div>
                     </div>
+                    <ul class="rules-list">
+                        <li>Tudo que for arrecadado pertence à organização.</li>
+                        <li>Proibido roubar membros da própria facção.</li>
+                        <li>Armas e munições devem ser utilizadas com consciência.</li>
+                        <li>Perdeu equipamento por vacilo? Pode ser cobrado.</li>
+                        <li>Confie na organização e seja leal sempre.</li>
+                    </ul>
+                </div>
 
-                    <div class="rule-card">
-                        <div class="rule-card-icon" style="color: var(--yellow);"><i class="fa-solid fa-face-frown"></i>
-                        </div>
-                        <div class="rule-card-body">
-                            <strong>Brincadeiras inadequadas</strong>
-                            <span>Proibido brincadeiras de mau gosto ou que prejudiquem a facção.</span>
-                        </div>
+                <!-- 5. REGRAS DE COMUNICAÇÃO -->
+                <div class="rules-section" id="sec-5">
+                    <div class="rules-section-header">
+                        <div class="rules-section-number">5</div>
+                        <div class="rules-section-title">Regras de Comunicação</div>
                     </div>
+                    <ul class="rules-list">
+                        <li>Rádio sempre organizado.</li>
+                        <li>Comunicação rápida, clara e objetiva.</li>
+                        <li>Evite flood no rádio.</li>
+                        <li>Informações importantes devem ser passadas com responsabilidade.</li>
+                        <li>Passou informação errada propositalmente = punição.</li>
+                    </ul>
+                </div>
 
-                    <div class="rule-card">
-                        <div class="rule-card-icon" style="color: var(--yellow);"><i class="fa-solid fa-car"></i></div>
-                        <div class="rule-card-body">
-                            <strong>Veículos parados</strong>
-                            <span>Proibido deixar veículos parados e espalhados dentro do território da facção.</span>
-                        </div>
+                <!-- 6. REGRAS DA HQ -->
+                <div class="rules-section" id="sec-6">
+                    <div class="rules-section-header">
+                        <div class="rules-section-number">6</div>
+                        <div class="rules-section-title">Regras da HQ</div>
                     </div>
+                    <ul class="rules-list">
+                        <li>Proibido atirar ou causar bagunça dentro da base.</li>
+                        <li>Sem música alta em horário de ação.</li>
+                        <li>Manter a HQ sempre organizada e abastecida.</li>
+                        <li>Apenas cargos autorizados têm acesso às áreas restritas.</li>
+                        <li>HQ não é lugar de brincadeira.</li>
+                    </ul>
+                </div>
 
-                    <div class="rule-card">
-                        <div class="rule-card-icon" style="color: var(--red);"><i class="fa-solid fa-gavel"></i></div>
-                        <div class="rule-card-body">
-                            <strong>Abuso de poder</strong>
-                            <span>Proibido excesso e abuso de poder dentro da facção por membros de alto cargo.</span>
-                        </div>
+                <!-- 7. PROIBIÇÕES -->
+                <div class="rules-section" id="sec-7">
+                    <div class="rules-section-header">
+                        <div class="rules-section-number">7</div>
+                        <div class="rules-section-title">Proibições</div>
                     </div>
+                    <div class="prohibitions-grid">
+                        <div class="prohibition-tag"><i class="fa-solid fa-ban"></i> Anti-RP</div>
+                        <div class="prohibition-tag"><i class="fa-solid fa-eye"></i> Meta Gaming</div>
+                        <div class="prohibition-tag"><i class="fa-solid fa-fist-raised"></i> Power Gaming</div>
+                        <div class="prohibition-tag"><i class="fa-solid fa-right-from-bracket"></i> Combat Logging</div>
+                        <div class="prohibition-tag"><i class="fa-solid fa-code"></i> Uso de Cheats / Mod Menu</div>
+                        <div class="prohibition-tag"><i class="fa-solid fa-face-angry"></i> Desrespeito com Membros</div>
+                        <div class="prohibition-tag"><i class="fa-solid fa-unlock"></i> Vazamento de Informações</div>
+                        <div class="prohibition-tag"><i class="fa-solid fa-comments"></i> Discussão em Ação</div>
+                    </div>
+                </div>
 
-                    <div class="rule-card">
-                        <div class="rule-card-icon" style="color: var(--green);"><i class="fa-solid fa-medal"></i></div>
-                        <div class="rule-card-body">
-                            <strong>Promoções</strong>
-                            <span>Qualquer promoção de cargo deve ser feita somente em reunião.</span>
+                <!-- 8. SISTEMA DE PUNIÇÃO -->
+                <div class="rules-section" id="sec-8">
+                    <div class="rules-section-header">
+                        <div class="rules-section-number">8</div>
+                        <div class="rules-section-title">Sistema de Punição</div>
+                    </div>
+                    <div class="punishment-steps">
+                        <div class="punishment-step step-1">
+                            <div class="punishment-badge">1ª</div>
+                            <div class="punishment-body">
+                                <strong>1ª Advertência</strong>
+                                <p>Aviso verbal.</p>
+                            </div>
+                        </div>
+                        <div class="punishment-step step-2">
+                            <div class="punishment-badge">2ª</div>
+                            <div class="punishment-body">
+                                <strong>2ª Advertência</strong>
+                                <p>Suspensão.</p>
+                            </div>
+                        </div>
+                        <div class="punishment-step step-3">
+                            <div class="punishment-badge">3ª</div>
+                            <div class="punishment-body">
+                                <strong>3ª Advertência</strong>
+                                <p>Expulsão. Dependendo da gravidade, a expulsão será imediata.</p>
+                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="rule-card">
-                        <div class="rule-card-icon" style="color: var(--text-primary);"><i
-                                class="fa-solid fa-spray-can"></i></div>
-                        <div class="rule-card-body">
-                            <strong>Aparência dos veículos</strong>
-                            <span>Obrigatório o uso de cor cromada e rodas pretas nos veículos da facção.</span>
-                        </div>
-                    </div>
+                <!-- Banner final -->
+                <div class="final-banner">
+                    <p>⚑ Lealdade, Respeito e Disciplina acima de tudo!</p>
                 </div>
 
             </div>

@@ -26,46 +26,49 @@
             </div>
         </div>
 
-        <div class="sidebar-search">
-            <div class="search-wrapper">
-                <i class="fa-solid fa-search"></i>
-                <input type="text" placeholder="Buscar nas regras...">
-            </div>
-        </div>
-
         <nav class="sidebar-nav">
-            <div class="nav-label">Início</div>
+            <div class="nav-label">Navegação</div>
             <a href="index.html" class="nav-item active">
                 <i class="fa-solid fa-house"></i>
-                Visão Geral
+                Início
+            </a>
+            <a href="pages/gerais.html" class="nav-item">
+                <i class="fa-solid fa-scroll"></i>
+                Regras da Facção
             </a>
 
-            <div class="nav-label">Diretrizes</div>
-            <a href="#" class="nav-item">
-                <i class="fa-solid fa-book"></i>
+            <div class="nav-label">Seções</div>
+            <a href="pages/gerais.html#sec-1" class="nav-item">
+                <i class="fa-solid fa-users"></i>
                 Regras Gerais
             </a>
-            <a href="#" class="nav-item">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                Advertências
+            <a href="pages/gerais.html#sec-2" class="nav-item">
+                <i class="fa-solid fa-crosshairs"></i>
+                Regras de Ação
             </a>
-            <a href="#" class="nav-item">
-                <i class="fa-solid fa-box-open"></i>
-                Regras do Baú
+            <a href="pages/gerais.html#sec-3" class="nav-item">
+                <i class="fa-solid fa-car"></i>
+                Regras de Veículos
             </a>
-            <a href="#" class="nav-item">
-                <i class="fa-solid fa-sack-dollar"></i>
-                Farm
+            <a href="pages/gerais.html#sec-4" class="nav-item">
+                <i class="fa-solid fa-lock"></i>
+                Regras Internas
             </a>
-
-            <div class="nav-label">Estrutura</div>
-            <a href="#" class="nav-item">
-                <i class="fa-solid fa-sitemap"></i>
-                Hierarquia
+            <a href="pages/gerais.html#sec-5" class="nav-item">
+                <i class="fa-solid fa-radio"></i>
+                Comunicação
             </a>
-            <a href="#" class="nav-item">
-                <i class="fa-solid fa-star"></i>
-                Elite
+            <a href="pages/gerais.html#sec-6" class="nav-item">
+                <i class="fa-solid fa-building"></i>
+                Regras da HQ
+            </a>
+            <a href="pages/gerais.html#sec-7" class="nav-item">
+                <i class="fa-solid fa-ban"></i>
+                Proibições
+            </a>
+            <a href="pages/gerais.html#sec-8" class="nav-item">
+                <i class="fa-solid fa-gavel"></i>
+                Sistema de Punição
             </a>
         </nav>
     </aside>
@@ -73,40 +76,40 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Topbar Mobile -->
-        <header class="topbar-mobile">
+        <header class="topbar-mobile" id="topbar">
             <button class="hamburger" id="hamburger-btn">
                 <i class="fa-solid fa-bars"></i>
             </button>
             <strong>Regras CPX</strong>
-            <div style="width: 18px;"></div> <!-- Placeholder to center text -->
+            <div style="width: 18px;"></div>
         </header>
 
         <!-- Page Content -->
         <div class="page-container">
-            
+
             <div class="page-banner">
                 <img src="assets/banner.png" alt="Banner CPX">
             </div>
 
             <header class="page-header">
-                <h1 class="page-title">Bem-vindo à Central de Regras CPX</h1>
+                <h1 class="page-title">Central de Regras CPX</h1>
                 <p class="page-description">
-                    Todas as normas internas da organização estão registradas nesta documentação oficial.
-                    O conhecimento e cumprimento destas regras são essenciais para a manutenção da disciplina da facção.
+                    Todas as normas oficiais da organização estão documentadas aqui.
+                    O conhecimento e cumprimento destas regras são obrigatórios para todos os membros.
                 </p>
 
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <div class="stat-value">10</div>
-                        <div class="stat-label">Categorias</div>
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Seções</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-value">+50</div>
+                        <div class="stat-value">+40</div>
                         <div class="stat-label">Regras Ativas</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-value">24/7</div>
-                        <div class="stat-label">Monitoramento</div>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Níveis de Punição</div>
                     </div>
                 </div>
             </header>
@@ -119,29 +122,29 @@
             </div>
 
             <h2 class="section-title">Acesso Rápido</h2>
-            
+
             <div class="cards-grid">
-                <a href="#" class="card">
-                    <i class="fa-solid fa-book card-icon"></i>
+                <a href="pages/gerais.html" class="card">
+                    <i class="fa-solid fa-scroll card-icon"></i>
                     <div class="card-content">
-                        <strong>Regras Gerais</strong>
-                        <span>Normas básicas de convivência, respeito e conduta dentro da facção.</span>
+                        <strong>Regras da Facção</strong>
+                        <span>Todas as 8 seções de regras oficiais da CPX em um só lugar.</span>
                     </div>
                 </a>
 
-                <a href="#" class="card">
-                    <i class="fa-solid fa-box-open card-icon"></i>
+                <a href="pages/gerais.html#sec-7" class="card">
+                    <i class="fa-solid fa-ban card-icon"></i>
                     <div class="card-content">
-                        <strong>Regras do Baú</strong>
-                        <span>Limites de arsenal, restrições diárias e gerenciamento de itens.</span>
+                        <strong>Proibições</strong>
+                        <span>Anti-RP, Meta Gaming, Power Gaming, Combat Logging e mais.</span>
                     </div>
                 </a>
 
-                <a href="#" class="card">
-                    <i class="fa-solid fa-copy card-icon"></i>
+                <a href="pages/gerais.html#sec-8" class="card">
+                    <i class="fa-solid fa-gavel card-icon"></i>
                     <div class="card-content">
-                        <strong>Modelos Rápidos</strong>
-                        <span>Formulários padronizados para advertências e avisos de ausência.</span>
+                        <strong>Sistema de Punição</strong>
+                        <span>3 advertências: aviso verbal, suspensão e expulsão.</span>
                     </div>
                 </a>
             </div>
