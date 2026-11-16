@@ -823,9 +823,10 @@ table tr:hover td {
 
 /* Estado inicial — invisível antes de entrar na tela */
 .rules-section {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  /* As regras devem permanecer visíveis mesmo sem JavaScript. */
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 /* Quando o IntersectionObserver adiciona .visible */
@@ -870,9 +871,10 @@ table tr:hover td {
 
 /* Banner final */
 .final-banner {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+  /* Evita ocultar o aviso final caso a animação não seja inicializada. */
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 .final-banner.visible {
   opacity: 1;
