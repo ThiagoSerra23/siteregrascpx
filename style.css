@@ -1020,3 +1020,56 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+
+/* Navegação por páginas: somente a seção selecionada fica visível. */
+.rules-section[hidden] { display: none !important; }
+.rules-section.active {
+  display: block;
+  min-height: 260px;
+  animation: rulesPageEnter .22s ease both;
+}
+@keyframes rulesPageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rules-page-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 34px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.rules-page-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #1b1d23;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: .18s ease;
+}
+.rules-page-button:not(:disabled):hover {
+  border-color: var(--color-red);
+  background: var(--color-red-dim);
+}
+.rules-page-button:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+.rules-page-counter {
+  color: var(--text-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+@media (max-width: 520px) {
+  .rules-page-navigation { gap: 8px; }
+  .rules-page-button { padding: 10px 11px; font-size: 12px; }
+}
