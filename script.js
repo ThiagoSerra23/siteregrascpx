@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: 'sec-3', title: 'Regras de Veículos', keywords: 'carro veículo abastecer organização transporte passeio' },
     { id: 'sec-4', title: 'Regras Internas', keywords: 'arrecadação equipamento armas munições roubo lealdade' },
     { id: 'sec-5', title: 'Comunicação', keywords: 'rádio informações flood comunicação clara' },
-    { id: 'sec-6', title: 'Regras da HQ', keywords: 'base sede organização áreas restritas bagunça' },
+    { id: 'sec-6', title: 'Regras da Favela', keywords: 'base sede organização áreas restritas bagunça' },
     { id: 'sec-7', title: 'Proibições', keywords: 'anti-rp metagaming meta gaming powergaming cheats mod menu combat logging vazamento' },
     { id: 'sec-8', title: 'Sistema de Punição', keywords: 'advertência aviso verbal suspensão expulsão disciplina' }
   ];
