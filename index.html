@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regras CPX | Documentação Oficial</title>
-    <link rel="shortcut icon" href="assets\favicon.ico" type="image/x-icon">
+    <meta name="description" content="Central oficial de documentação e regras da organização IRAQUE.">
+    <meta name="theme-color" content="#101114">
+    <title>Regras IRAQUE | Documentação Oficial</title>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -24,12 +26,13 @@
                     <img src="assets/logo.png" alt="Logo">
                 </div>
                 <div class="sidebar-title">
-                    <strong>Regras CPX</strong>
-                    <span>Documentação Oficial</span>
+                    <strong>Regras IRAQUE</strong>
+                    <span>Base de conhecimento</span>
                 </div>
             </div>
 
             <nav class="sidebar-nav">
+                <div class="sidebar-search"><div class="search-wrap"><i class="fa-solid fa-search search-icon"></i><input type="search" id="search-input" placeholder="Buscar nas regras..." aria-label="Buscar nas regras"><kbd>Ctrl K</kbd></div><div id="search-results" role="listbox"></div></div>
                 <div class="nav-label">Navegação</div>
                 <a href="index.html" class="nav-item active">
                     <i class="fa-solid fa-house"></i>
@@ -80,10 +83,10 @@
         <main class="main-content">
             <!-- Topbar Mobile -->
             <header class="topbar-mobile" id="topbar">
-                <button class="hamburger" id="hamburger-btn">
+                <button class="hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false">
                     <i class="fa-solid fa-bars"></i>
                 </button>
-                <strong>Regras CPX</strong>
+                <strong>Regras IRAQUE</strong>
                 <div style="width: 18px;"></div>
             </header>
 
@@ -91,11 +94,12 @@
             <div class="page-container">
 
                 <div class="page-banner">
-                    <img src="assets/banner.png" alt="Banner CPX">
+                    <img src="assets/banner.png" alt="Banner IRAQUE">
                 </div>
 
                 <header class="page-header">
-                    <h1 class="page-title">Central de Regras CPX</h1>
+                    <p class="eyebrow">DOCUMENTAÇÃO OFICIAL</p>
+                    <h1 class="page-title">Central de Regras IRAQUE</h1>
                     <p class="page-description">
                         Todas as normas oficiais da organização estão documentadas aqui.
                         O conhecimento e cumprimento destas regras são obrigatórios para todos os membros.
@@ -148,7 +152,7 @@
                         <i class="fa-solid fa-gavel card-icon"></i>
                         <div class="card-content">
                             <strong>Sistema de Punição</strong>
-                            <span>3 advertências: aviso verbal, suspensão e expulsão.</span>
+                            <span>Entenda as medidas disciplinares e suas etapas.</span>
                         </div>
                     </a>
                 </div>
@@ -157,19 +161,8 @@
         </main>
     </div>
 
-    <script>
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('mobile-overlay');
-
-        function toggleMenu() {
-            sidebar.classList.toggle('open');
-            overlay.classList.toggle('active');
-        }
-
-        hamburgerBtn.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-    </script>
+    <script src="script.js"></script>
+ipt>
 
 </body>
 
