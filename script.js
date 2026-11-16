@@ -97,22 +97,71 @@ document.addEventListener('DOMContentLoaded', () => {
     backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
 
-  // Scroll spy: destaca a seção atualmente visível no menu lateral.
-  if (sections.length) {
-    const links = [...document.querySelectorAll('.nav-link[href^="#"], .nav-item[href*="#"]')];
-    const updateActive = () => {
-      let activeId = '';
-      sections.forEach(section => {
-        if (section.getBoundingClientRect().top < 180) activeId = section.id;
+  // Navegação por páginas: exibe uma regra por vez, sem rolagem entre seções.
+  if (rulesPage && sections.length) {
+    const navLinks = [...document.querySelectorAll('.sidebar-nav a[href^="#sec-"]')];
+    const pageHeading = document.querySelector('.page .page-header h2');
+    const pageDescription = document.querySelector('.page .page-header p');
+    const motto = document.querySelector('.faction-motto');
+    const finalBanner = document.querySelector('.final-banner');
+
+    // O aviso final pertence à última página, e não fica solto abaixo das regras.
+    const lastSection = sections[sections.length - 1];
+    if (finalBanner && lastSection) lastSection.append(finalBanner);
+    if (motto) motto.hidden = true;
+
+    const titles = new Map(sections.map(section => [
+      section.id,
+      section.querySelector('.rules-section-title')?.textContent.trim() || 'Regras da Facção'
+    ]));
+
+    // Cria navegação anterior/próxima no rodapé de cada página.
+    sections.forEach((section, index) => {
+      const pager = document.createElement('div');
+      pager.className = 'rules-page-navigation';
+      pager.innerHTML = `
+        <button type="button" class="rules-page-button rules-page-previous" ${index === 0 ? 'disabled' : ''}>
+          <i class="fa-solid fa-arrow-left"></i><span>Anterior</span>
+        </button>
+        <span class="rules-page-counter">${index + 1} de ${sections.length}</span>
+        <button type="button" class="rules-page-button rules-page-next" ${index === sections.length - 1 ? 'disabled' : ''}>
+          <span>Próxima</span><i class="fa-solid fa-arrow-right"></i>
+        </button>`;
+      section.append(pager);
+      pager.querySelector('.rules-page-previous')?.addEventListener('click', () => {
+        if (index > 0) location.hash = sections[index - 1].id;
       });
-      links.forEach(link => {
-        const active = link.getAttribute('href').split('#').pop() === activeId;
-        link.classList.toggle('spy-active', active);
-        if (active) link.setAttribute('aria-current', 'location');
+      pager.querySelector('.rules-page-next')?.addEventListener('click', () => {
+        if (index < sections.length - 1) location.hash = sections[index + 1].id;
+      });
+    });
+
+    const showSection = () => {
+      const requestedId = location.hash.slice(1);
+      const current = sections.find(section => section.id === requestedId) || sections[0];
+
+      sections.forEach(section => {
+        const active = section === current;
+        section.classList.toggle('active', active);
+        section.hidden = !active;
+      });
+
+      navLinks.forEach(link => {
+        const active = link.hash === '#' + current.id;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'page');
         else link.removeAttribute('aria-current');
       });
+
+      if (pageHeading) pageHeading.textContent = titles.get(current.id);
+      if (pageDescription) pageDescription.textContent = 'Consulte as normas desta seção da organização IRAQUE.';
+      document.title = titles.get(current.id) + ' | Regras IRAQUE';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      closeMenu();
     };
-    window.addEventListener('scroll', updateActive, { passive: true });
-    updateActive();
+
+    // Atualiza a página ao clicar no menu, usar busca ou navegar pelo histórico.
+    window.addEventListener('hashchange', showSection);
+    showSection();
   }
 });
