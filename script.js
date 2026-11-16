@@ -1,135 +1,118 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const sidebar = document.getElementById('sidebar');
+  const menuButton = document.getElementById('hamburger-btn');
+  const overlay = document.getElementById('overlay') || document.getElementById('mobile-overlay');
 
-    // ── SIDEBAR MOBILE TOGGLE ──
-    const sidebar = document.getElementById('sidebar');
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const overlay = document.getElementById('overlay') || document.getElementById('mobile-overlay');
+  // Menu responsivo: mantém botão, overlay e estado de acessibilidade sincronizados.
+  const closeMenu = () => {
+    sidebar?.classList.remove('open');
+    overlay?.classList.remove('show', 'active');
+    menuButton?.setAttribute('aria-expanded', 'false');
+  };
+  const toggleMenu = () => {
+    const opened = sidebar?.classList.toggle('open') ?? false;
+    overlay?.classList.toggle('show', opened);
+    overlay?.classList.toggle('active', opened);
+    menuButton?.setAttribute('aria-expanded', String(opened));
+  };
+  menuButton?.addEventListener('click', toggleMenu);
+  overlay?.addEventListener('click', closeMenu);
+  document.querySelectorAll('.sidebar-nav a').forEach(link => link.addEventListener('click', closeMenu));
 
-    function toggleSidebar() {
-        sidebar.classList.toggle('open');
-        if (overlay) overlay.classList.toggle('show');
-        if (overlay) overlay.classList.toggle('active');
-    }
+  // Catálogo de seções compartilhado pela busca da home e da página de regras.
+  const catalog = [
+    { id: 'sec-1', title: 'Regras Gerais', keywords: 'respeito hierarquia conduta membros intrigas liderança postura' },
+    { id: 'sec-2', title: 'Regras de Ação', keywords: 'ação uniforme rádio autorização superior abatido RK roleplay' },
+    { id: 'sec-3', title: 'Regras de Veículos', keywords: 'carro veículo abastecer organização transporte passeio' },
+    { id: 'sec-4', title: 'Regras Internas', keywords: 'arrecadação equipamento armas munições roubo lealdade' },
+    { id: 'sec-5', title: 'Comunicação', keywords: 'rádio informações flood comunicação clara' },
+    { id: 'sec-6', title: 'Regras da HQ', keywords: 'base sede organização áreas restritas bagunça' },
+    { id: 'sec-7', title: 'Proibições', keywords: 'anti-rp metagaming meta gaming powergaming cheats mod menu combat logging vazamento' },
+    { id: 'sec-8', title: 'Sistema de Punição', keywords: 'advertência aviso verbal suspensão expulsão disciplina' }
+  ];
+  const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const input = document.getElementById('search-input');
+  const results = document.getElementById('search-results');
+  const sections = [...document.querySelectorAll('.rules-section[id]')];
+  const rulesPage = location.pathname.includes('/pages/');
+  const hideResults = () => { if (results) results.style.display = 'none'; };
 
-    if (hamburgerBtn) hamburgerBtn.addEventListener('click', toggleSidebar);
-    if (overlay) overlay.addEventListener('click', toggleSidebar);
+  if (input && results) {
+    input.addEventListener('input', () => {
+      const query = normalize(input.value.trim());
+      results.replaceChildren();
+      if (query.length < 2) { hideResults(); return; }
 
-    // ── SCROLL TO TOP BUTTON ──
-    const backTopBtn = document.getElementById('back-top');
+      const matches = catalog.map(item => {
+        const section = sections.find(node => node.id === item.id);
+        const content = section ? section.textContent : '';
+        const haystack = normalize(item.title + ' ' + item.keywords + ' ' + content);
+        return { ...item, section, haystack };
+      }).filter(item => item.haystack.includes(query));
 
-    if (backTopBtn) {
-        window.addEventListener('scroll', () => {
-            backTopBtn.classList.toggle('visible', window.scrollY > 300);
-        });
-        backTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
+      matches.forEach(item => {
+        const link = document.createElement('a');
+        link.href = rulesPage ? '#' + item.id : 'pages/gerais.html#' + item.id;
+        link.setAttribute('role', 'option');
+        link.textContent = item.title;
+        const detail = document.createElement('small');
+        detail.textContent = item.section ? 'Encontrado no conteúdo das regras' : 'Abrir seção da documentação';
+        link.append(detail);
+        link.addEventListener('click', () => { hideResults(); closeMenu(); });
+        results.append(link);
+      });
 
-    // ── COPY TO CLIPBOARD ──
-    const copyBtns = document.querySelectorAll('.copy-btn');
-    copyBtns.forEach(btn => {
-        btn.addEventListener('click', async () => {
-            const targetEl = document.getElementById(btn.getAttribute('data-target'));
-            if (!targetEl) return;
-            try {
-                await navigator.clipboard.writeText(targetEl.textContent.trim());
-                const orig = btn.innerHTML;
-                btn.innerHTML = '<i class="fa-solid fa-check"></i> Copiado';
-                btn.classList.add('copied');
-                setTimeout(() => { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2000);
-            } catch (err) {
-                console.error('Erro ao copiar:', err);
-            }
-        });
+      if (!matches.length) {
+        const empty = document.createElement('div');
+        empty.className = 'search-empty';
+        empty.textContent = 'Nenhuma regra encontrada. Tente outro termo.';
+        results.append(empty);
+      }
+      results.style.display = 'block';
     });
 
-    // ── BUSCA BÁSICA ──
-    const searchInput = document.getElementById('search-input');
-    const searchResults = document.getElementById('search-results');
+    input.addEventListener('keydown', event => {
+      if (event.key === 'Escape') { hideResults(); input.blur(); }
+      if (event.key === 'Enter') results.querySelector('a')?.click();
+    });
+    document.addEventListener('click', event => {
+      if (!event.target.closest('.sidebar-search')) hideResults();
+    });
+  }
 
-    if (searchInput && searchResults) {
-        searchInput.addEventListener('input', (e) => {
-            const val = e.target.value.toLowerCase().trim();
-            if (val.length > 2) {
-                searchResults.style.display = 'block';
-                searchResults.innerHTML = `<a href="gerais.html">Regras Gerais (busca: ${val})</a>`;
-            } else {
-                searchResults.style.display = 'none';
-            }
-        });
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.search-wrap') && !e.target.closest('#search-results')) {
-                searchResults.style.display = 'none';
-            }
-        });
+  // Atalho de pesquisa Ctrl+K / Cmd+K.
+  document.addEventListener('keydown', event => {
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+      event.preventDefault();
+      input?.focus();
     }
+  });
 
-    // ══════════════════════════════════════════════════════
-    //  #3 — ANIMAÇÕES DE ENTRADA (IntersectionObserver)
-    // ══════════════════════════════════════════════════════
-    const sections = document.querySelectorAll('.rules-section, .final-banner');
+  // Botão voltar ao topo.
+  const backTop = document.getElementById('back-top');
+  if (backTop) {
+    const updateBackTop = () => backTop.classList.toggle('visible', window.scrollY > 320);
+    window.addEventListener('scroll', updateBackTop, { passive: true });
+    updateBackTop();
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
 
-    if (sections.length > 0) {
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    // Não remove — anima só uma vez
-                    sectionObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.12,   // Dispara quando 12% da seção está visível
-            rootMargin: '0px 0px -40px 0px'
-        });
-
-        sections.forEach(sec => sectionObserver.observe(sec));
-    }
-
-    // ══════════════════════════════════════════════════════
-    //  #1 — SCROLL SPY (destaca o link do menu atual)
-    // ══════════════════════════════════════════════════════
-    const spySections = document.querySelectorAll('.rules-section[id]');
-    const navLinks    = document.querySelectorAll('.nav-link[href^="#"], .nav-item[href^="#"]');
-
-    if (spySections.length > 0 && navLinks.length > 0) {
-
-        function updateSpy() {
-            let currentId = '';
-            const scrollY = window.scrollY + 120; // offset da topbar
-
-            spySections.forEach(sec => {
-                if (sec.offsetTop <= scrollY) {
-                    currentId = sec.id;
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('spy-active');
-                // Pega só o hash (#sec-1) mesmo que o href seja ../index.html#sec-1
-                const href = link.getAttribute('href');
-                const hash = href.includes('#') ? href.split('#')[1] : null;
-                if (hash && hash === currentId) {
-                    link.classList.add('spy-active');
-                }
-            });
-        }
-
-        // Throttle para não travar em rolagem rápida
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                requestAnimationFrame(() => {
-                    updateSpy();
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
-
-        // Roda uma vez ao carregar para já marcar a seção certa
-        updateSpy();
-    }
-
+  // Scroll spy: destaca a seção atualmente visível no menu lateral.
+  if (sections.length) {
+    const links = [...document.querySelectorAll('.nav-link[href^="#"], .nav-item[href*="#"]')];
+    const updateActive = () => {
+      let activeId = '';
+      sections.forEach(section => {
+        if (section.getBoundingClientRect().top < 180) activeId = section.id;
+      });
+      links.forEach(link => {
+        const active = link.getAttribute('href').split('#').pop() === activeId;
+        link.classList.toggle('spy-active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
+  }
 });
